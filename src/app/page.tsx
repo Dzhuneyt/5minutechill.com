@@ -163,8 +163,8 @@ export default function Home() {
               style={{ textDecoration: 'none', color: 'inherit' }}
               onClick={() => {
                 // Analytics tracking
-                if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
-                  (window as typeof window & { gtag: Function }).gtag('event', 'click', {
+                if (typeof window !== 'undefined' && (window as typeof window & { gtag?: (command: string, action: string, params: Record<string, string>) => void }).gtag) {
+                  (window as typeof window & { gtag: (command: string, action: string, params: Record<string, string>) => void }).gtag('event', 'click', {
                     event_category: 'footer',
                     event_label: 'dzhuneyt.com',
                   });
