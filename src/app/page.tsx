@@ -5,23 +5,9 @@ import { Container, Text, Grid, Box, Title, Stack } from '@mantine/core';
 import SoundCard from '@/components/SoundCard';
 import { Sound, SoundData } from '@/types/sound';
 
-const motivationalMessages = [
-  'Your daily dose of zen',
-  'Meditation made simple',
-  'Find your calm in 5 minutes',
-  'Relax, recharge, refocus',
-  'Mindfulness for busy minds',
-  'Your pocket-sized sanctuary'
-];
-
-const randomSlogan = () => {
-  return motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
-};
-
 export default function Home() {
   const [sounds, setSounds] = useState<Sound[]>([]);
   const [loading, setLoading] = useState(true);
-  const [slogan] = useState(randomSlogan());
 
   useEffect(() => {
     const loadSounds = async () => {
@@ -177,8 +163,8 @@ export default function Home() {
               style={{ textDecoration: 'none', color: 'inherit' }}
               onClick={() => {
                 // Analytics tracking
-                if (typeof window !== 'undefined' && (window as any).gtag) {
-                  (window as any).gtag('event', 'click', {
+                if (typeof window !== 'undefined' && (window as typeof window & { gtag?: Function }).gtag) {
+                  (window as typeof window & { gtag: Function }).gtag('event', 'click', {
                     event_category: 'footer',
                     event_label: 'dzhuneyt.com',
                   });

@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Box, Text, Slider as MantineSlider, Stack, ActionIcon } from '@mantine/core';
-import { IconPlayerPlay, IconPlayerStop } from '@tabler/icons-react';
+import { Box, Text, Slider as MantineSlider, Stack } from '@mantine/core';
 import { Sound } from '@/types/sound';
 
 interface SoundCardProps {
